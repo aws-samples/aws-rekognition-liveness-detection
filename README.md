@@ -4,6 +4,10 @@
 #### AWS recently launched the [Amazon Rekognition Face Liveness feature](https://aws.amazon.com/about-aws/whats-new/2023/04/amazon-rekognition-face-liveness-deter-fraud-facial-verification/). This new feature helps deter fraud in facial verification.
 
 
+![Automated Liveness Detection](/images/challenges.png)
+
+
+
 * With AWS Amplify you could easily plug Face liveness detection on your Android/IOS/Browser. It currently supports the below [frameworks](https://ui.docs.amplify.aws/react/connected-components/liveness):
   1. [Android](https://ui.docs.amplify.aws/android/connected-components/liveness)
   2. [React](https://ui.docs.amplify.aws/react/connected-components/liveness)
@@ -90,4 +94,4 @@
 12. Once you create an account and login you should see the below screen
 ![main_screen](/images/face_liveness_main_screen.png)
 
-13. 
+13. Click on **Begin Check** for automated liveness detection

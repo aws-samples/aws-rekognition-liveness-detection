@@ -95,3 +95,7 @@
 ![main_screen](/images/face_liveness_main_screen.png)
 
 13. Click on **Begin Check** for automated liveness detection
+![challenge1](/images/challenge1.png)
+
+14. Wait for verification. This service gives you a confidence score for face liveness.
+![verification](/images/verification.png)

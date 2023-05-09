@@ -1,0 +1,35 @@
+.mat-grid-tile {
+        //width: 10vw !important;
+    }
+
+    .mat-grid-list {
+        // width: 10vw;
+    }
+
+    .icon-display-success {
+        transform: scale(3);
+        color: green;
+        padding-left: 10px !important;
+        padding-top: 3px !important;
+
+    }
+
+    .icon-display-failure {
+        transform: scale(3);
+        color: red;
+        padding-left: 10px !important;
+        padding-top: 5px !important;
+    }
+
+    .submit-button {
+        padding: 14px 40px;
+    }
+
+
+    .amplify-liveness-video-anchor {
+        width: 50vw !important;
+    }
+
+    .liveness-detector {
+        width: 50vw !important;
+    }

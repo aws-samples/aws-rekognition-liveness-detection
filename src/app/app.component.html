@@ -1,0 +1,10 @@
+<div class="topnav">
+  <img height=50px src="../assets/angular-logo.png" />
+  <mat-icon class="logout" (click)="signOut()" title="Logout">logout</mat-icon>
+</div>
+
+<amplify-authenticator>
+  <ng-template amplifySlot="authenticated" let-user="user" let-signOut="signOut">
+    <app-face-liveness *ngIf="load_face_live"></app-face-liveness>
+  </ng-template>
+</amplify-authenticator>

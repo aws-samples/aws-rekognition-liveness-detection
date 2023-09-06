@@ -12,6 +12,7 @@ import {
     ViewChild,
     ViewEncapsulation
 } from '@angular/core';
+import axios from 'axios';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { FaceLivenessDetector } from '@aws-amplify/ui-react-liveness';
@@ -55,15 +56,33 @@ export class FaceLivenessReactWrapperComponent implements OnInit, OnChanges, OnD
     }
 
     handleAnalysisComplete = async () => {
-        var rekognition = new AWS.Rekognition();
-        var params = {
+        const rekognition = new AWS.Rekognition();
+        const params = {
             SessionId: this.sessionId
         };
         rekognition.getFaceLivenessSessionResults(params).promise().then(data => {
             this.livenessResults.emit(data);
             console.log(data);
+            const captureTime = new Date()
+            const currentDate = `${captureTime.getHours()}-${captureTime.getMinutes()}-${captureTime.getSeconds()}`
+            // Convert the data to JSON
+            const jsonData = JSON.stringify(data);
+            // Create a Blob object for the JSON data
+            const blob = new Blob([jsonData], { type: 'application/json' });
+            // Create a URL for the Blob
+            const url = URL.createObjectURL(blob);
+            // Create a link and simulate a click to trigger download
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `liveness_results_${currentDate}.json`;
+            a.click();
+            // Clean up by revoking the URL object
+            URL.revokeObjectURL(url);
+
+
         }).catch(err => {
             console.log(err);
+
         });
     }
 
@@ -78,8 +97,8 @@ export class FaceLivenessReactWrapperComponent implements OnInit, OnChanges, OnD
         ReactDOM.render(
             <React.StrictMode>
                 <div>
-                    <FaceLivenessDetector sessionId={this.sessionId} region={this.region} onAnalysisComplete={this.handleAnalysisComplete} 
-                    onError={this.handleError}
+                    <FaceLivenessDetector sessionId={this.sessionId} region={this.region} onAnalysisComplete={this.handleAnalysisComplete}
+                        onError={this.handleError}
                     />
                 </div>
             </React.StrictMode>

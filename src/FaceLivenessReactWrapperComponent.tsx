@@ -23,7 +23,7 @@ const containerElementName = 'faceLivenessReactContainer';
 @Component({
     selector: 'app-faceliveness-react-wrapper',
     template: `<span #${containerElementName}></span>`,
-    // styleUrls: [''],
+    styleUrls: ['./FaceLivenessAmplify.scss'],
     encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class FaceLivenessReactWrapperComponent implements OnInit, OnChanges, OnDestroy, AfterViewInit {
